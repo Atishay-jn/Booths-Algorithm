@@ -6,8 +6,6 @@ Booth's Algorithm implementation for Computer Organisation's second project
 
 * Division.cpp implements division for integers like it in done on the circuit level
 
-Both the files are following Booth's Algorithm to achieve the desired results.
-
 ## Run 
 ```bash
 g++ -std=c++11 multiplication.cpp -o multiplication
