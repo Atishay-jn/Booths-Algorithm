@@ -10,8 +10,7 @@ vector<bool> comp(vector<bool> v) {
 	// Return type: vector<bool>
 	for(int i=0;i<v.size();i++)
 		v[i] = !v[i];
-	bool check = true;
-	bool sum;
+	bool check = true,sum;
 	int i = v.size()-1;
 	while(check and i>=0) {
 		sum = check ^ v[i];
@@ -28,7 +27,7 @@ vector<bool> bin(long long n) {
 	// It converts the input into its equivalent binary. 
 	// Array reversal is done as numbers are pushed in opposite order from the formula being used.
 	// Return type: vector<bool>
-	vector<bool> temp;
+	vector<bool> temp,ch;
 	while(n>0) {
 		if(n%2)
 			temp.push_back(true);
@@ -36,7 +35,6 @@ vector<bool> bin(long long n) {
 			temp.push_back(false);
 		n /= 2;
 	}
-	vector<bool> ch;
 	ch.push_back(false);
 	for(int i=temp.size()-1;i>=0;i--)
 		ch.push_back(temp[i]);
@@ -113,8 +111,7 @@ vector<bool> add(vector<bool> a, vector<bool> b) {
 	a = append(a,k);
 	for(int i=0;i<a.size();i++)
 		answer.push_back(false);
-	bool carry = false;
-	bool sum;
+	bool carry = false,sum;
 	int i = b.size()-1;
 	while(i>=0) {
 		sum = carry ^ a[i] ^ b[i];
