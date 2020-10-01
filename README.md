@@ -1,6 +1,6 @@
 # Booths-Algorithm
 
-Booth's Algorithm implementation for Computer Organisation's second project
+Booth's Algorithm implementation for a course project for course:Computer Organisation. It was one of 2 projects done for this course.
 
 * Multiplication.cpp implements multiplication for integers like it in done on the circuit level
 
