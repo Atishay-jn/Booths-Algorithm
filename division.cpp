@@ -8,6 +8,7 @@ vector<bool> comp(vector<bool> v) {
 	// This function takes a boolean vector as input and does a bitwise not.
 	// It then does logical addition of one in the array to achive 2's complement.
 	// Return type: vector<bool>
+	
 	for(int i=0;i<v.size();i++)
 		v[i] = !v[i];
 	bool check = true,sum;
@@ -27,6 +28,7 @@ vector<bool> bin(long long n) {
 	// It converts the input into its equivalent binary. 
 	// Array reversal is done as numbers are pushed in opposite order from the formula being used.
 	// Return type: vector<bool>
+	
 	vector<bool> temp,ch;
 	while(n>0) {
 		if(n%2)
@@ -56,10 +58,9 @@ vector<bool> cov_bin(long long n) {
 	// This function is used to segregate between positive and negative numbers.
 	// This helps us decide between binary and 2's complement representation.
 	// Return type: vector<bool>
-	if(n>0)
+	if(n > 0)
 		return bin(n);
-	else
-		return nbin(n);
+	return nbin(n);
 }
 
 vector<bool> append(vector<bool> t, int k) {
@@ -67,6 +68,7 @@ vector<bool> append(vector<bool> t, int k) {
 	// This function is used to add appropriate padding at the start of the vector.
 	// Positive numbers are padded with zero and negative numbers with 1.
 	// Return type: vector<bool>
+	
 	std::vector<bool> v;
 	for(int i=0;i<k-t.size();i++)
 		v.push_back(t[0]);
@@ -82,6 +84,7 @@ long long num(vector<bool> v) {
 	// 2's complement is taken if the number is in 2's complement to get the binary representation.
 	// The corresponding decimal is multiplied by -1 if flag is true.
 	// Return type: long long
+	
 	bool flag = v[0];
 	if(v[0])
 		v = comp(v);
@@ -103,6 +106,7 @@ vector<bool> add(vector<bool> a, vector<bool> b) {
 	// Bitwise addition is then performed using the idea of a full-adder circuit.
 	// Last overflow bit is ignored because the numbers are being represented in 2's complement.
 	// Return type: vector<bool>
+	
 	vector<bool> answer;
 	int k = a.size();
 	if(k<b.size())
@@ -132,12 +136,13 @@ pair<vector<bool>,vector<bool> > shift_left(vector<bool> A,vector<bool> Q) {
 	// The last element of A is made equal to first element of Q
 	// The last element of Q is made equal to 0.
 	// Return type: pair<vector<bool>,vector<bool> >
+	
 	for(int i=0;i<A.size()-1;i++)
 		A[i] = A[i+1];
-    A[A.size()-1]=Q[0];
-    for(int i=0;i<Q.size()-1;i++)
+	A[A.size()-1]=Q[0];
+	for(int i=0;i<Q.size()-1;i++)
 		Q[i] = Q[i+1];
-    Q[Q.size()-1]=0;
+	Q[Q.size()-1]=0;
 	return make_pair(A,Q);
 }
 
@@ -146,11 +151,8 @@ void booth_restore(vector<bool> divid, vector<bool> divis, bool flag1, bool flag
 	// This function takes 4 parameters as input. 2 boolean vectors and 2 bool variables.
 	// The 2 boolean vectors represent the divident and divisor respectively.
 	// The 2 boolean variables are used to represent the sign of input.
-	//
-	//
-	//
-	//
 	// Return type: void
+	
 	vector<bool> rem;
 	for(int i=0;i<divid.size();i++)
 		rem.push_back(false);
@@ -201,6 +203,7 @@ void booth_restore(vector<bool> divid, vector<bool> divis, bool flag1, bool flag
 
 int main(){
 	// Procedural code for basic I/O requirements of the program
+	
 	vector<bool> a,b;
 	long long A, B;
 	cout<<"Divident: ";
