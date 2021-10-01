@@ -1,3 +1,26 @@
+//░░░░░░░░░░▄
+//░░░░░░░░▄▐░▄▄█████▄▄
+//░░░░░░▄█████████████▄▀▄▄░▄▄▄
+//░░░░░█████████████████▄██████
+//░░░░████▐█████▌████████▌█████▌
+//░░░████▌█████▌█░████████▐▀██▀
+//░▄█████░█████▌░█░▀██████▌█▄▄▀▄
+//░▌███▌█░▐███▌▌░░▄▄░▌█▌███▐███░▀
+//▐░▐██░░▄▄▐▀█░░░▐▄█▀▌█▐███▐█
+//░░███░▌▄█▌░░▀░░▀██░░▀██████▌
+//░░░▀█▌▀██▀░▄░░░░░░░░░███▐███
+//░░░░██▌░░░░░░░░░░░░░▐███████▌
+//░░░░███░░░░░▀█▀░░░░░▐██▐███▀▌
+//░░░░▌█▌█▄░░░░░░░░░▄▄████▀░▀
+//░░░░░░█▀██▄▄▄░▄▄▀▀▒█▀█░▀
+//░░░░░░░░░▀░▀█▀▌▒▒▒░▐▄▄
+//░░░░░░░░▄▄▀▀▄░░░░░░▄▀░▀▀▄▄
+//░░░░░░▄▀░▄▀▄░▌░░░▄▀░░░░░░▄▀▀▄
+//░░░░░▐▒▄▀▄▀░▌▀▄▄▀░░░░░░▄▀▒▒▒▐
+//░░░░▐▒▒▌▀▄░░░░░▌░░░░▄▄▀▒▐▒▒▒▒▌
+//░░░▐▒▒▐░▌░▀▄░░▄▀▀▄▀▀▒▌▒▐▒▒▒▒▐▐
+//░░░▌▄▀░░░▄▀░█▀▒▒▒▒▀▄▒▌▐▒▒▒▒▒▌▌
+//░░▄▀▒▐░▄▀░░░▌▒▐▒▐▒▒▒▌▀▒▒▒▒▒▐▒▌
 #include <bits/stdc++.h>
 #define ll long long
 #define endl "\n"
@@ -12,6 +35,7 @@ vector<bool> comp(vector<bool> v) {
 	// This function takes a boolean vector as input and does a bitwise not.
 	// It then does logical addition of one in the array to achive 2's complement.
 	// Return type: vector<bool>
+	
 	for(int i=0;i<v.size();i++)
 		v[i] = !v[i];
 	bool check = true;
@@ -32,6 +56,7 @@ vector<bool> bin(long long n) {
 	// It converts the input into its equivalent binary. 
 	// Array reversal is done as numbers are pushed in opposite order from the formula being used.
 	// Return type: vector<bool>
+	
 	vector<bool> temp;
 	while(n>0) {
 		if(n%2)
@@ -52,6 +77,7 @@ vector<bool> nbin(long long n) {
 	// This function takes a negative decimal number as input and gives 2's complement as output.
 	// The function itself just calls bin() and comp() to achieve this.
 	// Return type: vector<bool>
+	
 	vector<bool> temp = bin(-n);
 	temp = comp(temp);
 	return temp;
@@ -62,10 +88,10 @@ vector<bool> cov_bin(long long n) {
 	// This function is used to segregate between positive and negative numbers.
 	// This helps us decide between binary and 2's complement representation.
 	// Return type: vector<bool>
+	
 	if(n>0)
 		return bin(n);
-	else
-		return nbin(n);
+	return nbin(n);
 }
 
 vector<bool> append(vector<bool> t, int k) {
@@ -73,6 +99,7 @@ vector<bool> append(vector<bool> t, int k) {
 	// This function is used to add appropriate padding at the start of the vector.
 	// Positive numbers are padded with zero and negative numbers with 1.
 	// Return type: vector<bool>
+	
 	std::vector<bool> v;
 	for(int i=0;i<k-t.size();i++)
 		v.push_back(t[0]);
@@ -88,6 +115,7 @@ long long num(vector<bool> v) {
 	// 2's complement is taken if the number is in 2's complement to get the binary representation.
 	// The corresponding decimal is multiplied by -1 if flag is true.
 	// Return type: long long
+	
 	bool flag = v[0];
 	if(v[0])
 		v = comp(v);
@@ -109,6 +137,7 @@ vector<bool> add(vector<bool> a, vector<bool> b) {
 	// Bitwise addition is then performed using the idea of a full-adder circuit.
 	// Last overflow bit is ignored because the numbers are being represented in 2's complement.
 	// Return type: vector<bool>
+	
 	vector<bool> answer;
 	int k = a.size();
 	if(k<b.size())
@@ -138,6 +167,7 @@ vector<bool> shift_right(vector<bool> v, bool flag) {
 	// We then perform a shift right operation on the entire vector.
 	// The first element is made equal to the flag variable.
 	// Return type: vector<bool>
+	
 	for(int i=v.size()-1;i>0;i--)
 		v[i] = v[i-1];
 	v[0] = flag;
@@ -153,6 +183,7 @@ void booth(vector<bool> a, vector<bool> q) {
 	// For the final output, Q is appended to answer and last bit of Q(n+1) is ignored.
 	// Required output is displayed.
 	// Return type: void
+	
 	vector<bool> answer;
 	for(int i=0;i<a.size();i++)
 		answer.push_back(false);
@@ -178,6 +209,8 @@ void booth(vector<bool> a, vector<bool> q) {
 
 int main(){
 	// Procedural code for basic I/O requirements of the program
+	// Return type: int
+	
 	vector<bool> a,b;
 	long long A, B;
 	cout<<"First number: ";
